@@ -1,15 +1,11 @@
 <template>
-  <div id="app">
-    <Navbar/>
-    <div class="container-fluid">
-      <StatisticsContainer/>
-      <TicketsContainer/>
-    </div>
+  <div class="container-fluid">
+    <StatisticsContainer/>
+    <TicketsContainer/>
   </div>
 </template>
 
 <script>
-import Navbar from './components/Navbar.vue'
 import StatisticsContainer from './components/StatisticsContainer.vue'
 import TicketsContainer from './components/TicketsContainer.vue'
 
@@ -18,7 +14,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 export default {
   name: 'App',
   components: {
-    Navbar,
     StatisticsContainer,
     TicketsContainer
   }

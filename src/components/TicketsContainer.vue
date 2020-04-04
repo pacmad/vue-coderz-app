@@ -17,7 +17,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(ticket, index) in tickets.data" :key="index">
-                        <th @click="viewTicket(index)" scope="row">{{ ticket.id }}</th>
+                        <th class="c-pointer" @click="viewTicket(index)" scope="row">{{ ticket.id }}</th>
                         <td>{{ ticket.title }}</td>
                         <td>{{ ticket.topic.name }}</td>
                     </tr>
