@@ -49,7 +49,7 @@ export default {
                     time: this.inputTime,
                 }
             }
-            axios.post('/api/graph', params)
+            axios.post('http://localhost:8000/api/graph', params)
                 .then((response) => {
                     console.log(response);
                     if (response.data.numbers !== undefined) {

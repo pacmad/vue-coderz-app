@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(ticket, index) in tickets.data">
+                    <tr v-for="(ticket, index) in tickets.data" :key="index">
                         <th @click="viewTicket(index)" scope="row">{{ ticket.id }}</th>
                         <td>{{ ticket.title }}</td>
                         <td>{{ ticket.topic.name }}</td>
@@ -33,10 +33,12 @@
         </div>
     </div>
 </div>
-</div>
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   name: 'TicketsContainer',
     data() {
@@ -47,7 +49,7 @@ export default {
         }
     },
     mounted() {
-        axios.get('api/tickets/user/1')
+        axios.get('http://localhost:8000/api/tickets/user/1')
             .then(res => {
                 this.tickets = res;
                 console.log(this.tickets);
