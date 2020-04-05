@@ -5,18 +5,17 @@
               <div class="card">
                   <div class="card-header">Login</div>
                   <div class="card-body">
-                      <form method="POST">
+                      <form @submit.prevent="login">
                           <div class="form-group row">
                               <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-
                               <div class="col-md-6">
-                                  <input id="email" type="email" class="form-control" name="email" required autocomplete="email" autofocus>
+                                  <input v-model="username" id="email" type="email" class="form-control" name="email" required autofocus>
                               </div>
                           </div>
                           <div class="form-group row">
                               <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                               <div class="col-md-6">
-                                  <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password">
+                                  <input v-model="password" id="password" type="password" class="form-control" name="password" required>
                               </div>
                           </div>
                           <div class="form-group row mb-0">
@@ -35,7 +34,28 @@
 </template>
 
 <script>
+
 export default {
+  data(){
+    return{
+      username: "",
+      password: ""
+    }
+  },
+  methods:{
+    login(){
+      this.$store.dispatch('retrieveToken', {
+        username: this.username,
+        password: this.password
+      })
+      .then((response) => {
+        return this.$store.dispatch('retrieveUser', response.data.access_token)
+      })
+      .then(() => {
+        this.$router.push({name: 'app'})
+      })
+    }
+  }
 }
 </script>
 

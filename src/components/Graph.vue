@@ -61,9 +61,7 @@ export default {
                     }
                     this.drawGraph(response);
                 })
-                .catch((error) => {
-                    console.log(error);
-                })
+cd..
         },
         drawGraph(data) {
             new Chart(this.graph, {

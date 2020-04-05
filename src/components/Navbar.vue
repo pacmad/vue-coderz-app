@@ -15,21 +15,21 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <ul v-if="loggedIn" class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
-                <li class="nav-item">
-                    <img src="https://raw.githubusercontent.com/JennerPalacios/SimpleSpoofNinja/master/img/Ninja.png" width="40" height="40">
-                </li>
-                <li class="nav-item">
-                    <a id="navbarDropdown" class="nav-link text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        User1
-                    </a>
-                </li>
-                <li>
-                    <a class="text-white nav-link" href="">
-                      Logout
-                    </a>
-                </li>
+                  <li class="nav-item">
+                      <img src="https://raw.githubusercontent.com/JennerPalacios/SimpleSpoofNinja/master/img/Ninja.png" width="40" height="40">
+                  </li>
+                  <li class="nav-item">
+                      <a id="navbarDropdown" class="nav-link text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{ getUser.name }}
+                      </a>
+                  </li>
+                  <li>
+                      <a class="text-white nav-link" href="">
+                        Logout
+                      </a>
+                  </li>
             </ul>
         </div>
     </div>
@@ -39,6 +39,19 @@
 <script>
 export default {
   name: 'Navbar',
+  data(){
+    return{
+
+    }
+  },
+  computed:{
+    getUser(){
+      return this.$store.getters.getUser
+    },
+    loggedIn(){
+      return this.$store.getters.loggedIn
+    }
+  }
 }
 </script>
 
