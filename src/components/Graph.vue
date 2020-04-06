@@ -61,7 +61,6 @@ export default {
                     }
                     this.drawGraph(response);
                 })
-cd..
         },
         drawGraph(data) {
             new Chart(this.graph, {

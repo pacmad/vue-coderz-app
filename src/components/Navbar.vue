@@ -20,16 +20,8 @@
                   <li class="nav-item">
                       <img src="https://raw.githubusercontent.com/JennerPalacios/SimpleSpoofNinja/master/img/Ninja.png" width="40" height="40">
                   </li>
-                  <li class="nav-item">
-                      <a id="navbarDropdown" class="nav-link text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          {{ getUser.name }}
-                      </a>
-                  </li>
-                  <li>
-                      <a class="text-white nav-link" href="">
-                        Logout
-                      </a>
-                  </li>
+                  <li id="navbarDropdown" class="nav-item text-white">{{ getUser.name }}</li>
+                  <li class="text-white nav-item"><router-link :to="{ name: 'logout' }">Logout</router-link></li>
             </ul>
         </div>
     </div>
@@ -51,6 +43,8 @@ export default {
     loggedIn(){
       return this.$store.getters.loggedIn
     }
+  },
+  methods:{
   }
 }
 </script>
